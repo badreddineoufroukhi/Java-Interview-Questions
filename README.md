@@ -433,3 +433,271 @@ final int CONSTANT = 100;
 - **`>>>`** : Déplace les bits vers la droite et remplace les bits vides par des zéros (les nombres négatifs ne gardent pas leur signe).
 
 ---
+
+# Java Core Interview Questions - Coding Standards
+
+Ce dépôt contient des questions d'entretien Java sur les normes de codage et la syntaxe de base, accompagnées d'exemples de code pour illustrer chaque concept.
+
+## Table des matières
+
+1. [Java Coding Standards for Classes](#1-java-coding-standards-for-classes)
+2. [Java Coding Standards for Interfaces, Methods, Variables, Constants](#2-java-coding-standards-for-interfaces-methods-variables-constants)
+3. [IS-A and HAS-A Relationship](#3-is-a-and-has-a-relationship)
+4. [instanceof Operator](#4-instanceof-operator)
+5. [null in Java](#5-null-in-java)
+6. [Multiple Classes in One File](#6-multiple-classes-in-one-file)
+7. [Access Modifiers for Top-Level Class](#7-access-modifiers-for-top-level-class)
+8. [Package in Java](#8-package-in-java)
+9. [Identifiers in Java](#9-identifiers-in-java)
+10. [Access Modifiers](#10-access-modifiers)
+11. [final Keyword](#11-final-keyword)
+12. [Abstract Classes](#12-abstract-classes)
+
+---
+
+## 1. Java Coding Standards for Classes
+
+- **Nom de la classe** : Utiliser le **camel case** avec la première lettre en majuscule.
+  Exemple : `MaClasse`.
+- **Nom des méthodes** : Utiliser le **camel case** avec la première lettre en minuscule.
+  Exemple : `maMethode()`.
+
+### Exemple :
+```java
+public class MyClass {
+    public void myMethod() {
+        System.out.println("Method in MyClass");
+    }
+}
+```
+
+---
+
+## 2. Java Coding Standards for Interfaces, Methods, Variables, Constants
+
+- **Interfaces** : Nom de l'interface en majuscule, avec des mots clairs.
+  Exemple : `Drawable`.
+
+- **Méthodes** : Utiliser des verbes au présent.
+  Exemple : `calculateTotal()`.
+
+- **Variables** : Nom en **camelCase**, début en minuscule.
+  Exemple : `int totalAmount;`.
+
+- **Constantes** : En majuscules, séparées par des underscores.
+  Exemple : `public static final int MAX_SIZE = 100;`.
+
+### Exemple :
+```java
+public interface Drawable {
+    void draw();
+}
+
+public class Rectangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+```
+
+---
+
+## 3. IS-A and HAS-A Relationship
+
+- **IS-A** : Indique l'héritage. Exemple : `class Car extends Vehicle`.
+- **HAS-A** : Indique une relation de composition. Exemple : `class Car has a Engine`.
+
+### Exemple IS-A :
+```java
+class Vehicle {
+    void move() {
+        System.out.println("Vehicle is moving");
+    }
+}
+
+class Car extends Vehicle {
+    void move() {
+        System.out.println("Car is moving");
+    }
+}
+```
+
+### Exemple HAS-A :
+```java
+class Engine {
+    void start() {
+        System.out.println("Engine started");
+    }
+}
+
+class Car {
+    private Engine engine = new Engine();
+    
+    void startCar() {
+        engine.start();
+        System.out.println("Car started");
+    }
+}
+```
+
+---
+
+## 4. instanceof Operator
+
+L'opérateur `instanceof` permet de vérifier si un objet est une instance d'une classe ou d'une interface. Il retourne **true** si l'objet est de ce type, sinon **false**.
+
+### Exemple :
+```java
+class Animal {}
+
+class Dog extends Animal {}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        System.out.println(a instanceof Dog);  // true
+    }
+}
+```
+
+---
+
+## 5. null in Java
+
+En Java, `null` représente l'absence de valeur. Cela signifie qu'une variable de type objet ne pointe vers aucune instance d'objet.
+
+### Exemple :
+```java
+String str = null;
+if (str == null) {
+    System.out.println("The string is null");
+}
+```
+
+---
+
+## 6. Multiple Classes in One File
+
+Oui, on peut avoir plusieurs classes dans un seul fichier en Java, mais une seule classe doit être publique et porter le même nom que le fichier.
+
+### Exemple :
+```java
+public class MyClass {
+    // Code de la classe MyClass
+}
+
+class AnotherClass {
+    // Code de la classe AnotherClass
+}
+```
+
+---
+
+## 7. Access Modifiers for Top-Level Class
+
+En Java, pour une classe en haut niveau, les modificateurs d'accès autorisés sont :
+- **public** : Accessible depuis n'importe où.
+- **default** (pas de modificateur) : Accessible uniquement dans son propre package.
+
+### Exemple :
+```java
+public class MyClass {
+    // Code de la classe publique
+}
+
+class DefaultClass {
+    // Code de la classe avec modificateur par défaut
+}
+```
+
+---
+
+## 8. Package in Java
+
+Un **package** en Java est un ensemble de classes et d'interfaces regroupées sous un même nom. Un fichier source Java ne peut contenir qu'un seul `package` statement au début du fichier.
+
+### Exemple :
+```java
+package mypackage;
+
+public class MyClass {
+    // Code de la classe
+}
+```
+
+---
+
+## 9. Identifiers in Java
+
+Les identifiants en Java sont des noms donnés aux variables, méthodes, classes, etc. Ils doivent commencer par une lettre, un underscore (_) ou un dollar ($), et peuvent être suivis de lettres, chiffres, underscores ou dollars.
+
+### Exemple :
+```java
+int totalAmount; // Identifiant valide
+int $amount;     // Identifiant valide
+int _total;      // Identifiant valide
+```
+
+---
+
+## 10. Access Modifiers
+
+Les modificateurs d'accès permettent de définir la visibilité des classes, méthodes, variables, etc. Ils sont : **public**, **protected**, **private**, et **default** (sans modificateur).
+
+### Exemple :
+```java
+public class MyClass {
+    private int value;
+    protected void display() {
+        System.out.println(value);
+    }
+}
+```
+
+---
+
+## 11. final Keyword
+
+Le mot-clé **final** empêche la modification :
+- **Variable** : La valeur ne peut pas être changée après l'initialisation.
+- **Méthode** : Elle ne peut pas être redéfinie par une sous-classe.
+- **Classe** : Elle ne peut pas être étendue.
+
+### Exemple :
+```java
+final class MyClass {
+    final int MAX_VALUE = 100;
+
+    final void display() {
+        System.out.println(MAX_VALUE);
+    }
+}
+```
+
+---
+
+## 12. Abstract Classes
+
+Une **classe abstraite** est une classe qui ne peut pas être instanciée directement. Elle contient souvent des méthodes abstraites qui n'ont pas de corps, donc la sous-classe doit les implémenter.
+
+### Exemple :
+```java
+abstract class Animal {
+    abstract void sound();  // Méthode abstraite
+
+    void breathe() {
+        System.out.println("Breathing");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.sound();
+    }
+}
+```
