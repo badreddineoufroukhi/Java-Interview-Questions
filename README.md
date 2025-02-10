@@ -857,3 +857,214 @@ try {
 }
 ```
 
+---
+
+# OOP Concepts Interview Questions
+
+Ce dépôt contient des questions d'entretien sur les concepts de la programmation orientée objet (POO) en Java, accompagnées de leurs explications et exemples de code.
+
+## Table des matières
+
+1. [Programmation procédurale (ou structurée)](#1-programmation-procédurale-ou-structurée)
+2. [Programmation orientée objet (POO)](#2-programmation-orientée-objet-poo)
+3. [Avantages de la POO](#3-avantages-de-la-poo)
+4. [Différences entre programmation procédurale et POO](#4-différences-entre-programmation-procédurale-et-poo)
+5. [Encapsulation](#5-encapsulation)
+6. [Héritage](#6-héritage)
+7. [Polymorphisme](#7-polymorphisme)
+
+---
+
+## 1. Programmation procédurale (ou structurée)
+
+La **programmation procédurale** (ou structurée) est un style de programmation où le code est divisé en fonctions ou procédures réutilisables.
+
+### Caractéristiques :
+- Basé sur des procédures/fonctions.
+- Suit un ordre séquentiel.
+- Utilise des variables globales et locales.
+- Facile à comprendre pour les petits programmes.
+
+### Exemple :
+```java
+// Programmation procédurale simple
+public class ProceduralExample {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+        System.out.println(add(a, b));
+    }
+
+    public static int add(int x, int y) {
+        return x + y;
+    }
+}
+```
+
+---
+
+## 2. Programmation orientée objet (POO)
+
+La **POO** est basée sur des objets qui encapsulent des données et des comportements.
+
+### Caractéristiques :
+- **Encapsulation** : Regroupe les données et méthodes associées.
+- **Héritage** : Permet de réutiliser le code d’une classe dans une autre.
+- **Polymorphisme** : Permet d’utiliser un même code pour différents types d’objets.
+- **Abstraction** : Cache les détails d'implémentation.
+
+### Exemple :
+```java
+// Exemple de POO en Java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class POOExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.sound();  // Polymorphisme
+    }
+}
+```
+
+---
+
+## 3. Avantages de la POO
+
+Les avantages de la **POO** incluent :
+
+- **Réutilisabilité du code** grâce à l'héritage.
+- **Modularité** : Séparation des fonctionnalités en classes et objets.
+- **Facilité de maintenance** : Code mieux organisé et plus facile à maintenir.
+- **Extensibilité** : Possibilité d’ajouter de nouvelles fonctionnalités sans perturber l'existant.
+
+---
+
+## 4. Différences entre programmation procédurale et POO
+
+| Concept                   | Programmation procédurale   | Programmation orientée objet (POO) |
+|---------------------------|-----------------------------|------------------------------------|
+| **Organisation**           | Basée sur des fonctions     | Basée sur des objets              |
+| **Modularité**             | Moins modulaire             | Plus modulaire, avec classes et objets |
+| **Réutilisation du code**  | Moins réutilisable          | Plus réutilisable grâce à l'héritage |
+| **Gestion des données**    | Utilisation de variables globales et locales | Encapsulation des données dans des objets |
+
+---
+
+## 5. Encapsulation
+
+**L'encapsulation** consiste à cacher les détails internes d’un objet et à contrôler son accès via des **getters** et **setters**.
+
+### Exemple :
+```java
+class Person {
+    private String name;
+    private int age;
+
+    // Getter pour le nom
+    public String getName() {
+        return name;
+    }
+
+    // Setter pour le nom
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter pour l'âge
+    public int getAge() {
+        return age;
+    }
+
+    // Setter pour l'âge
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+public class EncapsulationExample {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John");
+        person.setAge(30);
+        System.out.println("Name: " + person.getName() + ", Age: " + person.getAge());
+    }
+}
+```
+
+---
+
+## 6. Héritage
+
+**L'héritage** permet à une classe d'hériter des attributs et des méthodes d'une autre classe.
+
+### Exemple :
+```java
+class Vehicle {
+    void move() {
+        System.out.println("Vehicle is moving");
+    }
+}
+
+class Car extends Vehicle {
+    void move() {
+        System.out.println("Car is moving");
+    }
+}
+
+public class InheritanceExample {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Car();
+        vehicle.move();  // Car is moving
+    }
+}
+```
+
+---
+
+## 7. Polymorphisme
+
+**Le polymorphisme** permet d'utiliser une même méthode avec des comportements différents selon l'objet qui l'appelle.
+
+### Exemple :
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        
+        dog.sound();  // Dog barks
+        cat.sound();  // Cat meows
+    }
+}
+```
