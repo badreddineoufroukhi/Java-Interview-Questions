@@ -1,10 +1,3 @@
-# Java-Interview-Questions
-🚀 Prêt à relever de nouveaux défis en tant que Développeur Java ?
-
-Voici un modèle de fichier README pour ton repo GitHub, avec des exemples de code pour chaque question Java mentionnée :
-
----
-
 # Java Interview Questions
 
 ## 1) What are static blocks and static initializers in Java?
