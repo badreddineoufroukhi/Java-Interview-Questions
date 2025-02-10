@@ -188,7 +188,7 @@ class Dog implements Animal {
 }
 ```
 
----
+
 
 
 ## 7) Why is Java platform-independent?
@@ -450,7 +450,7 @@ Ce dépôt contient des questions d'entretien Java sur les normes de codage et l
 11. [final Keyword](#11-final-keyword)
 12. [Abstract Classes](#12-abstract-classes)
 
----
+
 
 ## 1. Java Coding Standards for Classes
 
@@ -468,7 +468,7 @@ public class MyClass {
 }
 ```
 
----
+
 
 ## 2. Java Coding Standards for Interfaces, Methods, Variables, Constants
 
@@ -497,7 +497,7 @@ public class Rectangle implements Drawable {
 }
 ```
 
----
+
 
 ## 3. IS-A and HAS-A Relationship
 
@@ -537,7 +537,7 @@ class Car {
 }
 ```
 
----
+
 
 ## 4. instanceof Operator
 
@@ -557,7 +557,7 @@ public class Test {
 }
 ```
 
----
+
 
 ## 5. null in Java
 
@@ -571,7 +571,7 @@ if (str == null) {
 }
 ```
 
----
+
 
 ## 6. Multiple Classes in One File
 
@@ -588,7 +588,7 @@ class AnotherClass {
 }
 ```
 
----
+
 
 ## 7. Access Modifiers for Top-Level Class
 
@@ -607,7 +607,7 @@ class DefaultClass {
 }
 ```
 
----
+
 
 ## 8. Package in Java
 
@@ -622,7 +622,7 @@ public class MyClass {
 }
 ```
 
----
+
 
 ## 9. Identifiers in Java
 
@@ -635,7 +635,7 @@ int $amount;     // Identifiant valide
 int _total;      // Identifiant valide
 ```
 
----
+
 
 ## 10. Access Modifiers
 
@@ -651,7 +651,7 @@ public class MyClass {
 }
 ```
 
----
+
 
 ## 11. final Keyword
 
@@ -671,7 +671,7 @@ final class MyClass {
 }
 ```
 
----
+
 
 ## 12. Abstract Classes
 
@@ -698,7 +698,7 @@ class Dog extends Animal {
     }
 }
 ```
-
+---
 # Java Exception Handling Interview Questions
 
 Ce dépôt contient des questions d'entretien Java concernant la gestion des exceptions, accompagnées d'exemples de code pour chaque concept.
@@ -717,13 +717,13 @@ Ce dépôt contient des questions d'entretien Java concernant la gestion des exc
 10. [Lancer et relancer des exceptions](#10-lancer-et-relancer-des-exceptions)
 11. [Classe Throwable](#11-classe-throwable)
 
----
+
 
 ## 1. Qu'est-ce qu'une exception en Java ?
 
 Une exception en Java est un événement qui interrompt le flux normal d'un programme. Elle survient généralement lors d'une erreur (par exemple, une division par zéro, ou un accès à un fichier inexistant).
 
----
+
 
 ## 2. Gestion des exceptions en Java
 
@@ -738,13 +738,13 @@ try {
 }
 ```
 
----
+
 
 ## 3. Erreur en Java
 
 Une erreur en Java est généralement un problème dans le code qui empêche le programme de s'exécuter correctement.
 
----
+
 
 ## 4. Avantages de la gestion des exceptions
 
@@ -754,7 +754,7 @@ Une erreur en Java est généralement un problème dans le code qui empêche le 
 - Facilite le débogage.
 - Sépare la logique de traitement des erreurs de la logique principale.
 
----
+
 
 ## 5. Façons de gérer les exceptions
 
@@ -771,7 +771,7 @@ public class ExceptionExample {
 }
 ```
 
----
+
 
 ## 6. Mots-clés liés à la gestion des exceptions
 
@@ -781,7 +781,7 @@ public class ExceptionExample {
 - **throw** : Pour lancer une exception manuellement.
 - **throws** : Pour déclarer qu'une méthode peut lancer une exception.
 
----
+
 
 ## 7. Bloc try et catch
 
@@ -797,7 +797,7 @@ try {
 }
 ```
 
----
+
 
 ## 8. Bloc finally
 
@@ -814,14 +814,14 @@ try {
 }
 ```
 
----
+
 
 ## 9. Exceptions vérifiées et non vérifiées
 
 - **Exceptions vérifiées (Checked Exceptions)** : Détectées à la compilation. Elles doivent être gérées avec un `try-catch` ou déclarées avec `throws`.
 - **Exceptions non vérifiées (Unchecked Exceptions)** : Hériées de `RuntimeException`. Elles ne sont pas vérifiées à la compilation.
 
----
+
 
 ## 10. Lancer et relancer des exceptions
 
@@ -838,7 +838,7 @@ try {
 }
 ```
 
----
+
 
 ## 11. Classe Throwable
 
@@ -873,7 +873,7 @@ Ce dépôt contient des questions d'entretien sur les concepts de la programmati
 6. [Héritage](#6-héritage)
 7. [Polymorphisme](#7-polymorphisme)
 
----
+
 
 ## 1. Programmation procédurale (ou structurée)
 
@@ -901,7 +901,7 @@ public class ProceduralExample {
 }
 ```
 
----
+
 
 ## 2. Programmation orientée objet (POO)
 
@@ -937,7 +937,7 @@ public class POOExample {
 }
 ```
 
----
+
 
 ## 3. Avantages de la POO
 
@@ -948,7 +948,7 @@ Les avantages de la **POO** incluent :
 - **Facilité de maintenance** : Code mieux organisé et plus facile à maintenir.
 - **Extensibilité** : Possibilité d’ajouter de nouvelles fonctionnalités sans perturber l'existant.
 
----
+
 
 ## 4. Différences entre programmation procédurale et POO
 
@@ -1002,7 +1002,7 @@ public class EncapsulationExample {
 }
 ```
 
----
+
 
 ## 6. Héritage
 
@@ -1030,7 +1030,7 @@ public class InheritanceExample {
 }
 ```
 
----
+
 
 ## 7. Polymorphisme
 
@@ -1068,8 +1068,8 @@ public class PolymorphismExample {
     }
 }
 ```
----
 
+---
 # Java Core Serialization Interview Questions
 
 Ce dépôt contient des exemples de code et des explications détaillées sur la sérialisation et la désérialisation en Java, ainsi que des alternatives et des bonnes pratiques.
@@ -1088,7 +1088,7 @@ Ce dépôt contient des exemples de code et des explications détaillées sur la
 10. [Exclure un champ de la sérialisation](#10-exclure-un-champ-de-la-sérialisation)
 11. [Sérialisation dans Spring](#11-sérialisation-dans-spring)
 
----
+
 
 ## 1. Introduction à la Sérialisation
 
@@ -1118,13 +1118,13 @@ public class Person implements Serializable {
 }
 ```
 
----
+
 
 ## 2. Objectif principal de la sérialisation
 
 L'objectif principal de la sérialisation est de **convertir un objet Java en un format facilement sauvegardable ou transmissible**, que ce soit dans un fichier ou à travers un réseau.
 
----
+
 
 ## 3. Alternatives à la sérialisation Java
 
@@ -1132,7 +1132,7 @@ L'objectif principal de la sérialisation est de **convertir un objet Java en un
 - **XML (JAXB)** : Utilisé pour convertir des objets en format XML.
 - **Protocol Buffers (Protobuf)** : Format binaire efficace pour la transmission de données.
 
----
+
 
 ## 4. Interface Serializable
 
@@ -1153,13 +1153,13 @@ public class Person implements Serializable {
 }
 ```
 
----
+
 
 ## 5. Rendre un objet sérialisable en Java
 
 Pour rendre un objet sérialisable en Java, la classe de l'objet doit implémenter l'interface **Serializable**.
 
----
+
 
 ## 6. serialVersionUID
 
@@ -1176,13 +1176,13 @@ public class Person implements Serializable {
 }
 ```
 
----
+
 
 ## 7. Que se passe-t-il sans serialVersionUID ?
 
 Si tu ne définis pas **serialVersionUID**, Java le génère automatiquement en fonction de la structure de ta classe. Si tu modifies la classe, cela pourrait empêcher la désérialisation correcte.
 
----
+
 
 ## 8. Les variables statiques et la sérialisation
 
@@ -1195,7 +1195,7 @@ public class MyClass implements Serializable {
 }
 ```
 
----
+
 
 ## 9. Sérialisation et références d'objets
 
@@ -1242,7 +1242,7 @@ public class Person implements Serializable {
 }
 ```
 
----
+
 
 ## 10. Exclure un champ de la sérialisation
 
@@ -1263,7 +1263,7 @@ public class Person implements Serializable {
 }
 ```
 
----
+
 
 ## 11. Sérialisation dans Spring
 
@@ -1294,8 +1294,8 @@ public class Person {
 }
 ```
 
----
 
+---
 
 # Questions d'entretien Java sur les Threads
 
@@ -1324,19 +1324,19 @@ Ce dépôt contient des questions fréquemment posées lors des entretiens sur l
 19. [Qu'est-ce que le thread-safe ?](#19-quest-ce-que-le-thread-safe)
 20. [Les types d'exceptions dans le multithreading](#20-les-types-dexceptions-dans-le-multithreading)
 
----
+
 
 ## 1. Qu'est-ce qu'un processus ?
 
 Un **processus** est un programme en cours d'exécution avec sa propre mémoire. Exemple : ouvrir deux instances de Chrome crée deux processus distincts, chacun avec ses propres ressources et mémoire.
 
----
+
 
 ## 2. Qu'est-ce qu'un thread en Java ?
 
 Un **thread** est une unité d'exécution à l'intérieur d'un processus. Il partage la mémoire du processus et peut exécuter des tâches en parallèle. Exemple : dans un lecteur multimédia, un thread peut lire une vidéo et un autre peut charger des sous-titres.
 
----
+
 
 ## 3. Différence entre processus et thread
 
@@ -1345,20 +1345,20 @@ Un **thread** est une unité d'exécution à l'intérieur d'un processus. Il par
   
 **Exemple** : Un navigateur web est un processus, mais chaque onglet du navigateur est un thread qui fonctionne indépendamment.
 
----
+
 
 ## 4. Qu'est-ce que le multitâche ?
 
 Le **multitâche** est la capacité d'exécuter plusieurs tâches simultanément. Exemple : écouter de la musique pendant que vous naviguez sur Internet.
 
----
+
 
 ## 5. Types de multitâche
 
 - **Multitâche basé sur les processus** : Plusieurs applications s'exécutent en même temps.
 - **Multitâche basé sur les threads** : Un seul programme effectue plusieurs tâches en parallèle. Exemple : un serveur web qui gère plusieurs requêtes clients avec différents threads.
 
----
+
 
 ## 6. Avantages du multithreading
 
@@ -1368,7 +1368,7 @@ Le **multithreading** présente plusieurs avantages :
 - **Réactivité** : L'application reste fluide, même pendant une tâche lourde.
 - **Tâches en arrière-plan** : Exemple : un téléchargement qui continue pendant que l'utilisateur interagit avec l'application.
 
----
+
 
 ## 7. Le thread principal en Java
 
@@ -1383,7 +1383,7 @@ public class Main {
 ```
 *Nom du thread principal : `main`.*
 
----
+
 
 ## 8. Meilleure approche pour créer un thread
 
@@ -1409,7 +1409,7 @@ public class Main {
 }
 ```
 
----
+
 
 ## 9. Cycle de vie d’un thread
 
@@ -1421,7 +1421,7 @@ Un thread passe par plusieurs états :
 4. **Bloqué (WAITING, TIMED_WAITING, BLOCKED)** : Attente d'une ressource.
 5. **Terminé (TERMINATED)** : Le thread a terminé son exécution.
 
----
+
 
 ## 10. Méthodes synchronisées et verrouillage
 
@@ -1442,7 +1442,7 @@ public class MyClass {
 - **Verrou** : Un mécanisme pour contrôler l'accès concurrent à une ressource partagée. 
 - **Méthodes synchronisées** : Garantissent qu'un seul thread puisse accéder à une ressource à la fois.
 
----
+
 
 ## 11. Priorité des threads
 
@@ -1458,7 +1458,7 @@ Thread thread = new Thread();
 thread.setPriority(Thread.MAX_PRIORITY);
 ```
 
----
+
 
 ## 12. Intercommunication entre threads
 
@@ -1481,32 +1481,32 @@ class SharedResource {
 }
 ```
 
----
+
 
 ## 13. Différence entre `Thread.sleep()` et `Object.wait()`
 
 - **Thread.sleep()** : Fait dormir le thread pendant un certain temps. Cela ne libère pas les ressources.
 - **Object.wait()** : Fait attendre le thread jusqu'à ce qu'un autre thread l'informe via `notify()` ou `notifyAll()`. Cela libère les ressources.
 
----
+
 
 ## 14. Qu'est-ce que la condition de course (race condition) ?
 
 Une **condition de course** se produit lorsque plusieurs threads accèdent et modifient une ressource partagée sans synchronisation, ce qui entraîne des résultats imprévisibles.
 
----
+
 
 ## 15. Qu'est-ce qu'un deadlock ?
 
 Un **deadlock** se produit lorsque deux ou plusieurs threads sont bloqués à cause de l'attente des ressources détenues par les autres, créant un cycle infini.
 
----
+
 
 ## 16. Qu'est-ce que le livelock ?
 
 Un **livelock** est une situation où deux threads continuent à s'exécuter sans parvenir à faire des progrès, car ils modifient constamment leur comportement pour éviter un blocage.
 
----
+
 
 ## 17. Expliquer les pools de threads
 
@@ -1519,19 +1519,19 @@ executor.submit(() -> System.out.println("Thread dans le pool"));
 executor.shutdown();
 ```
 
----
+
 
 ## 18. Qu'est-ce qu'une section critique ?
 
 Une **section critique** est un bloc de code qui accède à une ressource partagée par plusieurs threads. Il doit être exécuté de manière exclusive pour éviter les erreurs.
 
----
+
 
 ## 19. Qu'est-ce que le thread-safe ?
 
 Un code est **thread-safe** lorsque plusieurs threads peuvent l'exécuter simultanément sans entraîner de comportements indéfinis ou de conflits.
 
----
+
 
 ## 20. Les types d'exceptions dans le multithreading
 
@@ -1570,7 +1570,7 @@ Ce dépôt contient des questions courantes sur le **Collection Framework** en J
 19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
 20. [Différence entre HashMap et Hashtable](#20-difference-entre-hashmap-et-hashtable)
 
----
+
 
 ## 1. Qu'est-ce que le framework de collections ?
 
@@ -1591,7 +1591,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 2. Qu'est-ce qu'une collection ?
 
@@ -1612,7 +1612,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 3. Différence entre `Collection` et `Collections`
 
@@ -1637,7 +1637,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 4. Interfaces qui étendent `Collection`
 
@@ -1647,7 +1647,7 @@ Voici les interfaces principales qui étendent l'interface **Collection** :
 - **Queue** : Collection qui suit l'ordre FIFO (First In First Out).
 - **Deque** : Double-ended queue, permet d'ajouter ou de retirer des éléments aux deux extrémités.
 
----
+
 
 ## 5. Interface List en Java
 
@@ -1669,7 +1669,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 6. Méthodes spécifiques à List
 
@@ -1680,7 +1680,7 @@ Voici quelques méthodes spécifiques à **List** :
 - **set(int index, E element)** : Modifie un élément à un index donné.
 - **size()** : Retourne la taille de la liste.
 
----
+
 
 ## 7. Implémentations de List
 
@@ -1689,7 +1689,7 @@ Les implémentations courantes de **List** :
 - **Vector** : Similaire à ArrayList mais synchronisé.
 - **LinkedList** : Liste chaînée permettant des ajouts/suppressions rapides.
 
----
+
 
 ## 8. Iterator et ses méthodes
 
@@ -1718,13 +1718,13 @@ public class Example {
 }
 ```
 
----
+
 
 ## 9. Ordre d'itération d'un Iterator
 
 Un **Iterator** parcourt les éléments dans l'ordre d'insertion. Si un ordre spécifique est requis, comme pour un `TreeSet`, l'itérateur suit cet ordre.
 
----
+
 
 ## 10. ListIterator et ses méthodes
 
@@ -1757,7 +1757,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 11. Qu'est-ce qu'un Set ?
 
@@ -1779,7 +1779,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 12. Implémentations de Set
 
@@ -1788,7 +1788,7 @@ Les principales implémentations de **Set** :
 - **LinkedHashSet** : Conserve l'ordre d'insertion.
 - **TreeSet** : Trie les éléments.
 
----
+
 
 ## 13. HashSet et ses caractéristiques
 
@@ -1809,7 +1809,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 14. TreeSet et ses caractéristiques
 
@@ -1831,7 +1831,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 15. LinkedHashSet et ses caractéristiques
 
@@ -1853,7 +1853,7 @@ public class Example {
 }
 ```
 
----
+
 
 ## 16. Interface Map en Java
 
@@ -1874,25 +1874,25 @@ public class Example {
 }
 ```
 
----
+
 
 ## 17. LinkedHashMap
 
 **LinkedHashMap** maintient l'ordre d'insertion tout en offrant des accès rapides aux éléments.
 
----
+
 
 ## 18. SortedMap
 
 **SortedMap** garantit que les clés sont triées.
 
----
+
 
 ## 19. Hashtable et ses caractéristiques
 
 **Hashtable** est synchronisé et thread-safe, mais plus lent que **HashMap**.
 
----
+
 
 ## 20. Différence entre HashMap et Hashtable
 
@@ -1900,7 +1900,7 @@ public class Example {
 - **Null** : **HashMap** accepte les clés et valeurs null, **Hashtable** non.
 - **Performance** : **HashMap** est plus rapide dans les environnements non concurrentiels.
 
---- 
+ 
 # Conclusion
 
 Java est un langage de programmation polyvalent et puissant, largement utilisé pour le développement d'applications sur diverses plateformes. Il est connu pour sa simplicité, sa portabilité grâce à la machine virtuelle Java (JVM), et sa gestion automatique de la mémoire. Java reste très populaire dans les entreprises pour la création d'applications web, mobiles, et d'outils backend. Avec des frameworks solides et un écosystème robuste, il continue d'être un choix privilégié pour les développeurs.
