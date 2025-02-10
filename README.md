@@ -1293,3 +1293,614 @@ public class Person {
     }
 }
 ```
+
+---
+
+
+# Questions d'entretien Java sur les Threads
+
+Ce dépôt contient des questions fréquemment posées lors des entretiens sur les threads en Java, accompagnées d'explications détaillées et d'exemples de code.
+
+## Table des matières
+
+1. [Qu'est-ce qu'un processus ?](#1-quest-ce-quun-processus)
+2. [Qu'est-ce qu'un thread en Java ?](#2-quest-ce-quun-thread-en-java)
+3. [Différence entre processus et thread](#3-difference-entre-processus-et-thread)
+4. [Qu'est-ce que le multitâche ?](#4-quest-ce-que-le-multitache)
+5. [Types de multitâche](#5-types-de-multitache)
+6. [Avantages du multithreading](#6-avantages-du-multithreading)
+7. [Le thread principal en Java](#7-le-thread-principal-en-java)
+8. [Meilleure approche pour créer un thread](#8-meilleure-approche-pour-creer-un-thread)
+9. [Cycle de vie d’un thread](#9-cycle-de-vie-dun-thread)
+10. [Méthodes synchronisées et verrouillage](#10-methodes-synchronisees-et-verrouillage)
+11. [Priorité des threads](#11-priorite-des-threads)
+12. [Intercommunication entre threads](#12-intercommunication-entre-threads)
+13. [Différence entre `Thread.sleep()` et `Object.wait()`](#13-difference-entre-threadsleep-et-objectwait)
+14. [Qu'est-ce que la condition de course (race condition) ?](#14-quest-ce-que-la-condition-de-course-race-condition)
+15. [Qu'est-ce qu'un deadlock ?](#15-quest-ce-quun-deadlock)
+16. [Qu'est-ce que le livelock ?](#16-quest-ce-que-le-livelock)
+17. [Expliquer les pools de threads](#17-expliquer-les-pools-de-threads)
+18. [Qu'est-ce qu'une section critique ?](#18-quest-ce-quune-section-critique)
+19. [Qu'est-ce que le thread-safe ?](#19-quest-ce-que-le-thread-safe)
+20. [Les types d'exceptions dans le multithreading](#20-les-types-dexceptions-dans-le-multithreading)
+
+---
+
+## 1. Qu'est-ce qu'un processus ?
+
+Un **processus** est un programme en cours d'exécution avec sa propre mémoire. Exemple : ouvrir deux instances de Chrome crée deux processus distincts, chacun avec ses propres ressources et mémoire.
+
+---
+
+## 2. Qu'est-ce qu'un thread en Java ?
+
+Un **thread** est une unité d'exécution à l'intérieur d'un processus. Il partage la mémoire du processus et peut exécuter des tâches en parallèle. Exemple : dans un lecteur multimédia, un thread peut lire une vidéo et un autre peut charger des sous-titres.
+
+---
+
+## 3. Différence entre processus et thread
+
+- **Processus** : Mémoire indépendante, plus lourd en ressources.
+- **Thread** : Partage la mémoire du processus, plus léger et permet une exécution parallèle.
+  
+**Exemple** : Un navigateur web est un processus, mais chaque onglet du navigateur est un thread qui fonctionne indépendamment.
+
+---
+
+## 4. Qu'est-ce que le multitâche ?
+
+Le **multitâche** est la capacité d'exécuter plusieurs tâches simultanément. Exemple : écouter de la musique pendant que vous naviguez sur Internet.
+
+---
+
+## 5. Types de multitâche
+
+- **Multitâche basé sur les processus** : Plusieurs applications s'exécutent en même temps.
+- **Multitâche basé sur les threads** : Un seul programme effectue plusieurs tâches en parallèle. Exemple : un serveur web qui gère plusieurs requêtes clients avec différents threads.
+
+---
+
+## 6. Avantages du multithreading
+
+Le **multithreading** présente plusieurs avantages :
+- **Performance** : Exécution parallèle de plusieurs tâches.
+- **Utilisation efficace du CPU** : Optimisation de l'utilisation du processeur.
+- **Réactivité** : L'application reste fluide, même pendant une tâche lourde.
+- **Tâches en arrière-plan** : Exemple : un téléchargement qui continue pendant que l'utilisateur interagit avec l'application.
+
+---
+
+## 7. Le thread principal en Java
+
+Le **thread principal** est celui qui exécute le programme. Java le crée automatiquement lors du démarrage de l'application. Exemple : 
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Thread principal");
+    }
+}
+```
+*Nom du thread principal : `main`.*
+
+---
+
+## 8. Meilleure approche pour créer un thread
+
+- **Runnable** est préféré lorsque :
+  - Vous souhaitez hériter d'une autre classe.
+  - Séparer la logique du thread et du travail effectué dans le thread.
+  - Exécuter le même `Runnable` sur plusieurs threads.
+
+**Exemple avec `Runnable`** :
+```java
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Exécution du thread");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyRunnable myRunnable = new MyRunnable();
+        Thread thread = new Thread(myRunnable);
+        thread.start();
+    }
+}
+```
+
+---
+
+## 9. Cycle de vie d’un thread
+
+Un thread passe par plusieurs états :
+
+1. **Nouveau (NEW)** : Création du thread.
+2. **Prêt (RUNNABLE)** : Attente de l'exécution.
+3. **En cours d'exécution (RUNNING)** : Le thread est actif.
+4. **Bloqué (WAITING, TIMED_WAITING, BLOCKED)** : Attente d'une ressource.
+5. **Terminé (TERMINATED)** : Le thread a terminé son exécution.
+
+---
+
+## 10. Méthodes synchronisées et verrouillage
+
+Les **méthodes synchronisées** garantissent qu'un seul thread à la fois peut exécuter la méthode. Ceci est nécessaire lorsque plusieurs threads accèdent aux mêmes ressources partagées.
+
+**Exemple de méthode synchronisée** :
+```java
+public class MyClass {
+    private int counter = 0;
+    
+    public synchronized void increment() {
+        counter++;
+    }
+}
+```
+
+### Verrouillage et synchronisation :
+- **Verrou** : Un mécanisme pour contrôler l'accès concurrent à une ressource partagée. 
+- **Méthodes synchronisées** : Garantissent qu'un seul thread puisse accéder à une ressource à la fois.
+
+---
+
+## 11. Priorité des threads
+
+Chaque thread a une **priorité** qui influence son exécution. Elle peut être définie avec la méthode `setPriority(int priority)`.
+
+- **Thread.MIN_PRIORITY (1)** : Priorité faible.
+- **Thread.NORM_PRIORITY (5)** : Priorité normale (par défaut).
+- **Thread.MAX_PRIORITY (10)** : Priorité haute.
+
+**Exemple** :
+```java
+Thread thread = new Thread();
+thread.setPriority(Thread.MAX_PRIORITY);
+```
+
+---
+
+## 12. Intercommunication entre threads
+
+Les threads peuvent **communiquer** entre eux en utilisant les méthodes `wait()`, `notify()`, et `notifyAll()`.
+
+- **wait()** : Met un thread en attente.
+- **notify()** : Réveille un seul thread en attente.
+- **notifyAll()** : Réveille tous les threads en attente.
+
+**Exemple** :
+```java
+class SharedResource {
+    synchronized void produce() throws InterruptedException {
+        wait();
+    }
+    
+    synchronized void consume() {
+        notify();
+    }
+}
+```
+
+---
+
+## 13. Différence entre `Thread.sleep()` et `Object.wait()`
+
+- **Thread.sleep()** : Fait dormir le thread pendant un certain temps. Cela ne libère pas les ressources.
+- **Object.wait()** : Fait attendre le thread jusqu'à ce qu'un autre thread l'informe via `notify()` ou `notifyAll()`. Cela libère les ressources.
+
+---
+
+## 14. Qu'est-ce que la condition de course (race condition) ?
+
+Une **condition de course** se produit lorsque plusieurs threads accèdent et modifient une ressource partagée sans synchronisation, ce qui entraîne des résultats imprévisibles.
+
+---
+
+## 15. Qu'est-ce qu'un deadlock ?
+
+Un **deadlock** se produit lorsque deux ou plusieurs threads sont bloqués à cause de l'attente des ressources détenues par les autres, créant un cycle infini.
+
+---
+
+## 16. Qu'est-ce que le livelock ?
+
+Un **livelock** est une situation où deux threads continuent à s'exécuter sans parvenir à faire des progrès, car ils modifient constamment leur comportement pour éviter un blocage.
+
+---
+
+## 17. Expliquer les pools de threads
+
+Un **pool de threads** est un ensemble de threads pré-créés qui sont réutilisés pour exécuter différentes tâches. Cela permet d'éviter les coûts liés à la création de nouveaux threads à chaque demande.
+
+**Exemple avec `ExecutorService`** :
+```java
+ExecutorService executor = Executors.newFixedThreadPool(10);
+executor.submit(() -> System.out.println("Thread dans le pool"));
+executor.shutdown();
+```
+
+---
+
+## 18. Qu'est-ce qu'une section critique ?
+
+Une **section critique** est un bloc de code qui accède à une ressource partagée par plusieurs threads. Il doit être exécuté de manière exclusive pour éviter les erreurs.
+
+---
+
+## 19. Qu'est-ce que le thread-safe ?
+
+Un code est **thread-safe** lorsque plusieurs threads peuvent l'exécuter simultanément sans entraîner de comportements indéfinis ou de conflits.
+
+---
+
+## 20. Les types d'exceptions dans le multithreading
+
+Les exceptions courantes liées aux threads incluent :
+- **InterruptedException** : Lorsqu'un thread est interrompu pendant qu'il attend.
+- **IllegalThreadStateException** : Si une opération est effectuée sur un thread qui n'est pas dans l'état approprié.
+- **NullPointerException** : Si un thread essaie d'accéder à des données qui ne sont pas initialisées.
+
+---
+
+
+# Questions d'entretien Java sur le Framework de Collections
+
+Ce dépôt contient des questions courantes sur le **Collection Framework** en Java, avec des explications détaillées et des exemples de code.
+
+## Table des matières
+
+1. [Qu'est-ce que le framework de collections ?](#1-quest-ce-que-le-framework-de-collections)
+2. [Qu'est-ce qu'une collection ?](#2-quest-ce-quune-collection)
+3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
+4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
+5. [Interface List en Java](#5-interface-list-en-java)
+6. [Méthodes spécifiques à List](#6-methodes-specifiques-a-list)
+7. [Implémentations de List](#7-implementations-de-list)
+8. [Iterator et ses méthodes](#8-iterator-et-ses-methodes)
+9. [Ordre d'itération d'un Iterator](#9-ordre-diteration-dun-iterator)
+10. [ListIterator et ses méthodes](#10-listiterator-et-ses-methodes)
+11. [Qu'est-ce qu'un Set ?](#11-quest-ce-quun-set)
+12. [Implémentations de Set](#12-implementations-de-set)
+13. [HashSet et ses caractéristiques](#13-hashset-et-ses-caracteristiques)
+14. [TreeSet et ses caractéristiques](#14-treeset-et-ses-caracteristiques)
+15. [LinkedHashSet et ses caractéristiques](#15-linkedhashset-et-ses-caracteristiques)
+16. [Interface Map en Java](#16-interface-map-en-java)
+17. [LinkedHashMap](#17-linkedhashmap)
+18. [SortedMap](#18-sortedmap)
+19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
+20. [Différence entre HashMap et Hashtable](#20-difference-entre-hashmap-et-hashtable)
+
+---
+
+## 1. Qu'est-ce que le framework de collections ?
+
+Le **framework de collections** en Java est un ensemble d'interfaces et de classes qui permettent de manipuler des groupes d'objets (collections), comme les listes, ensembles, files d'attente, etc.
+
+**Exemple** :
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Example {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        System.out.println(list);
+    }
+}
+```
+
+---
+
+## 2. Qu'est-ce qu'une collection ?
+
+Une **collection** est une structure de données qui permet de stocker plusieurs objets.
+
+**Exemple** :
+```java
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Example {
+    public static void main(String[] args) {
+        Collection<String> collection = new ArrayList<>();
+        collection.add("One");
+        collection.add("Two");
+        System.out.println(collection);
+    }
+}
+```
+
+---
+
+## 3. Différence entre `Collection` et `Collections`
+
+- **Collection** : Une interface définissant des méthodes pour manipuler les groupes d'objets (ajouter, supprimer, vérifier la taille, etc.).
+- **Collections** : Une classe utilitaire avec des méthodes statiques pour manipuler les collections (comme `sort()`, `reverse()`, `shuffle()`).
+
+**Exemple** :
+```java
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(1);
+        list.add(2);
+        Collections.sort(list);
+        System.out.println(list);
+    }
+}
+```
+
+---
+
+## 4. Interfaces qui étendent `Collection`
+
+Voici les interfaces principales qui étendent l'interface **Collection** :
+- **List** : Collection ordonnée, permet les éléments dupliqués.
+- **Set** : Collection sans doublons.
+- **Queue** : Collection qui suit l'ordre FIFO (First In First Out).
+- **Deque** : Double-ended queue, permet d'ajouter ou de retirer des éléments aux deux extrémités.
+
+---
+
+## 5. Interface List en Java
+
+L'interface **List** représente une collection ordonnée qui permet les éléments dupliqués et conserve l'ordre d'insertion.
+
+**Exemple** :
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+public class Example {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Apple");
+        System.out.println(list);
+    }
+}
+```
+
+---
+
+## 6. Méthodes spécifiques à List
+
+Voici quelques méthodes spécifiques à **List** :
+- **add(E e)** : Ajoute un élément à la liste.
+- **get(int index)** : Récupère l'élément à un index donné.
+- **remove(int index)** : Supprime l'élément à un index donné.
+- **set(int index, E element)** : Modifie un élément à un index donné.
+- **size()** : Retourne la taille de la liste.
+
+---
+
+## 7. Implémentations de List
+
+Les implémentations courantes de **List** :
+- **ArrayList** : Liste dynamique basée sur un tableau.
+- **Vector** : Similaire à ArrayList mais synchronisé.
+- **LinkedList** : Liste chaînée permettant des ajouts/suppressions rapides.
+
+---
+
+## 8. Iterator et ses méthodes
+
+**Iterator** permet de parcourir les éléments d'une collection. Il possède trois méthodes principales :
+- **hasNext()** : Vérifie s'il y a un élément suivant.
+- **next()** : Retourne l'élément suivant.
+- **remove()** : Supprime l'élément courant.
+
+**Exemple** :
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Example {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+```
+
+---
+
+## 9. Ordre d'itération d'un Iterator
+
+Un **Iterator** parcourt les éléments dans l'ordre d'insertion. Si un ordre spécifique est requis, comme pour un `TreeSet`, l'itérateur suit cet ordre.
+
+---
+
+## 10. ListIterator et ses méthodes
+
+**ListIterator** est un itérateur qui peut parcourir une liste dans les deux sens : avant et arrière.
+
+- **add(E e)** : Ajoute un élément.
+- **previous()** : Retourne l'élément précédent.
+- **nextIndex()** et **previousIndex()** : Retourne l'index suivant/précédent.
+
+**Exemple** :
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class Example {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+
+        ListIterator<String> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        while (iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
+    }
+}
+```
+
+---
+
+## 11. Qu'est-ce qu'un Set ?
+
+Un **Set** est une collection d'éléments uniques, sans doublons.
+
+**Exemple** :
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class Example {
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Apple"); // Ne sera pas ajouté
+        System.out.println(set);
+    }
+}
+```
+
+---
+
+## 12. Implémentations de Set
+
+Les principales implémentations de **Set** :
+- **HashSet** : Pas d'ordre d'insertion garanti.
+- **LinkedHashSet** : Conserve l'ordre d'insertion.
+- **TreeSet** : Trie les éléments.
+
+---
+
+## 13. HashSet et ses caractéristiques
+
+**HashSet** est rapide pour ajouter, supprimer et vérifier des éléments. Il ne conserve pas l'ordre d'insertion.
+
+**Exemple** :
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class Example {
+    public static void main(String[] args) {
+        Set<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        System.out.println(set);
+    }
+}
+```
+
+---
+
+## 14. TreeSet et ses caractéristiques
+
+**TreeSet** trie les éléments automatiquement en fonction de leur ordre naturel ou d'un comparateur.
+
+**Exemple** :
+```java
+import java.util.TreeSet;
+import java.util.Set;
+
+public class Example {
+    public static void main(String[] args) {
+        Set<Integer> set = new TreeSet<>();
+        set.add(3);
+        set.add(1);
+        set.add(2);
+        System.out.println(set); // Affiche : [1, 2, 3]
+    }
+}
+```
+
+---
+
+## 15. LinkedHashSet et ses caractéristiques
+
+**LinkedHashSet** conserve l'ordre d'insertion des éléments.
+
+**Exemple** :
+```java
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Example {
+    public static void main(String[] args) {
+        Set<String> set = new LinkedHashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Apple"); // Ne sera pas ajouté
+        System.out.println(set); // Affiche : [Apple, Banana]
+    }
+}
+```
+
+---
+
+## 16. Interface Map en Java
+
+**Map** est une collection qui stocke des paires clé-valeur, où chaque clé est unique.
+
+**Exemple** :
+```java
+import java.util.Map;
+import java.util.HashMap;
+
+public class Example {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Apple", 3);
+        map.put("Banana", 2);
+        System.out.println(map);
+    }
+}
+```
+
+---
+
+## 17. LinkedHashMap
+
+**LinkedHashMap** maintient l'ordre d'insertion tout en offrant des accès rapides aux éléments.
+
+---
+
+## 18. SortedMap
+
+**SortedMap** garantit que les clés sont triées.
+
+---
+
+## 19. Hashtable et ses caractéristiques
+
+**Hashtable** est synchronisé et thread-safe, mais plus lent que **HashMap**.
+
+---
+
+## 20. Différence entre HashMap et Hashtable
+
+- **Synchronisation** : **Hashtable** est synchronisé, contrairement à **HashMap**.
+- **Null** : **HashMap** accepte les clés et valeurs null, **Hashtable** non.
+- **Performance** : **HashMap** est plus rapide dans les environnements non concurrentiels.
+
+--- 
+# Conclusion
+
+Java est un langage de programmation polyvalent et puissant, largement utilisé pour le développement d'applications sur diverses plateformes. Il est connu pour sa simplicité, sa portabilité grâce à la machine virtuelle Java (JVM), et sa gestion automatique de la mémoire. Java reste très populaire dans les entreprises pour la création d'applications web, mobiles, et d'outils backend. Avec des frameworks solides et un écosystème robuste, il continue d'être un choix privilégié pour les développeurs.
