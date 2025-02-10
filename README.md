@@ -1068,3 +1068,228 @@ public class PolymorphismExample {
     }
 }
 ```
+---
+
+# Java Core Serialization Interview Questions
+
+Ce dépôt contient des exemples de code et des explications détaillées sur la sérialisation et la désérialisation en Java, ainsi que des alternatives et des bonnes pratiques.
+
+## Table des matières
+
+1. [Introduction à la Sérialisation](#1-introduction-à-la-sérialisation)
+2. [Objectif principal de la sérialisation](#2-objectif-principal-de-la-sérialisation)
+3. [Alternatives à la sérialisation Java](#3-alternatives-à-la-sérialisation-java)
+4. [Interface Serializable](#4-interface-serializable)
+5. [Rendre un objet sérialisable en Java](#5-rendre-un-objet-sérialisable-en-java)
+6. [serialVersionUID](#6-serialversionuid)
+7. [Que se passe-t-il sans serialVersionUID ?](#7-que-se-passe-t-il-sans-serialversionuid)
+8. [Les variables statiques et la sérialisation](#8-les-variables-statiques-et-la-sérialisation)
+9. [Sérialisation et références d'objets](#9-sérialisation-et-références-dobjets)
+10. [Exclure un champ de la sérialisation](#10-exclure-un-champ-de-la-sérialisation)
+11. [Sérialisation dans Spring](#11-sérialisation-dans-spring)
+
+---
+
+## 1. Introduction à la Sérialisation
+
+La **sérialisation** transforme un objet Java en une suite de bytes pour l'enregistrer ou l'envoyer à travers un réseau. La **désérialisation** permet de reconstruire l'objet à partir de ces bytes.
+
+### Exemple de Sérialisation :
+```java
+import java.io.*;
+
+public class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Person person = new Person("John", 30);
+        
+        // Sérialisation
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("person.ser"))) {
+            out.writeObject(person);
+        }
+    }
+}
+```
+
+---
+
+## 2. Objectif principal de la sérialisation
+
+L'objectif principal de la sérialisation est de **convertir un objet Java en un format facilement sauvegardable ou transmissible**, que ce soit dans un fichier ou à travers un réseau.
+
+---
+
+## 3. Alternatives à la sérialisation Java
+
+- **JSON (Jackson, Gson)** : Utilisé pour convertir des objets Java en texte lisible.
+- **XML (JAXB)** : Utilisé pour convertir des objets en format XML.
+- **Protocol Buffers (Protobuf)** : Format binaire efficace pour la transmission de données.
+
+---
+
+## 4. Interface Serializable
+
+L'interface **Serializable** est une interface marqueur qui permet à un objet d'être sérialisé. Une classe doit l'implémenter pour que ses objets puissent être sérialisés.
+
+### Exemple :
+```java
+import java.io.*;
+
+public class Person implements Serializable {
+    private String name;
+    private int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+---
+
+## 5. Rendre un objet sérialisable en Java
+
+Pour rendre un objet sérialisable en Java, la classe de l'objet doit implémenter l'interface **Serializable**.
+
+---
+
+## 6. serialVersionUID
+
+Le **serialVersionUID** est un identifiant unique pour chaque version de la classe. Il permet de vérifier la compatibilité entre les versions d'une classe lors de la sérialisation et de la désérialisation.
+
+### Exemple :
+```java
+import java.io.*;
+
+public class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String name;
+    private int age;
+}
+```
+
+---
+
+## 7. Que se passe-t-il sans serialVersionUID ?
+
+Si tu ne définis pas **serialVersionUID**, Java le génère automatiquement en fonction de la structure de ta classe. Si tu modifies la classe, cela pourrait empêcher la désérialisation correcte.
+
+---
+
+## 8. Les variables statiques et la sérialisation
+
+Les **variables statiques** ne sont pas sérialisées, car elles sont partagées entre toutes les instances de la classe.
+
+### Exemple :
+```java
+public class MyClass implements Serializable {
+    private static int count = 0;  // Non sérialisée
+}
+```
+
+---
+
+## 9. Sérialisation et références d'objets
+
+Lorsque tu sérialises un objet, toutes les **références d'objets** auxquelles il fait référence sont également sérialisées. Java recrée ces objets lors de la désérialisation.
+
+### Exemple :
+```java
+import java.io.*;
+
+public class Address implements Serializable {
+    private String city;
+    
+    public Address(String city) {
+        this.city = city;
+    }
+}
+
+public class Person implements Serializable {
+    private String name;
+    private Address address;
+    
+    public Person(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+    
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Address address = new Address("Paris");
+        Person person = new Person("John", address);
+
+        // Sérialisation
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("personWithAddress.ser"));
+        out.writeObject(person);
+        out.close();
+        
+        // Désérialisation
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("personWithAddress.ser"));
+        Person deserializedPerson = (Person) in.readObject();
+        in.close();
+        
+        System.out.println(deserializedPerson.name);  // John
+        System.out.println(deserializedPerson.address.city);  // Paris
+    }
+}
+```
+
+---
+
+## 10. Exclure un champ de la sérialisation
+
+Pour empêcher un champ d'être sérialisé, utilise le mot-clé **transient**.
+
+### Exemple :
+```java
+import java.io.*;
+
+public class Person implements Serializable {
+    private String name;
+    private transient String password;  // Ne sera pas sérialisé
+    
+    public Person(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+}
+```
+
+---
+
+## 11. Sérialisation dans Spring
+
+Spring utilise des bibliothèques comme **Jackson** pour sérialiser des objets Java en JSON, particulièrement lors de l'échange de données dans les API REST.
+
+### Exemple d'utilisation avec Jackson :
+```java
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class Person {
+    @JsonProperty("full_name")
+    private String name;
+
+    @JsonProperty("age_in_years")
+    private int age;
+
+    // Getters et Setters
+
+    public static void main(String[] args) throws Exception {
+        Person person = new Person("John", 30);
+        
+        // Sérialisation en JSON
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(person);
+        System.out.println(jsonString);
+    }
+}
+```
