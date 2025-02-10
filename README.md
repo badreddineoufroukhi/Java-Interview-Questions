@@ -698,3 +698,162 @@ class Dog extends Animal {
     }
 }
 ```
+
+# Java Exception Handling Interview Questions
+
+Ce dépôt contient des questions d'entretien Java concernant la gestion des exceptions, accompagnées d'exemples de code pour chaque concept.
+
+## Table des matières
+
+1. [Qu'est-ce qu'une exception en Java ?](#1-quest-ce-quune-exception-en-java)
+2. [Gestion des exceptions en Java](#2-gestion-des-exceptions-en-java)
+3. [Erreur en Java](#3-erreur-en-java)
+4. [Avantages de la gestion des exceptions](#4-avantages-de-la-gestion-des-exceptions)
+5. [Façons de gérer les exceptions](#5-facons-de-gerer-les-exceptions)
+6. [Mots-clés liés à la gestion des exceptions](#6-mots-cles-lies-a-la-gestion-des-exceptions)
+7. [Bloc try et catch](#7-bloc-try-et-catch)
+8. [Bloc finally](#8-bloc-finally)
+9. [Exceptions vérifiées et non vérifiées](#9-exceptions-verifiees-et-non-verifiees)
+10. [Lancer et relancer des exceptions](#10-lancer-et-relancer-des-exceptions)
+11. [Classe Throwable](#11-classe-throwable)
+
+---
+
+## 1. Qu'est-ce qu'une exception en Java ?
+
+Une exception en Java est un événement qui interrompt le flux normal d'un programme. Elle survient généralement lors d'une erreur (par exemple, une division par zéro, ou un accès à un fichier inexistant).
+
+---
+
+## 2. Gestion des exceptions en Java
+
+La gestion des exceptions permet d'éviter les plantages en capturant et en traitant les erreurs. Cela permet au programme de continuer son exécution après une erreur.
+
+### Exemple :
+```java
+try {
+    int result = 10 / 0;  // Division par zéro
+} catch (ArithmeticException e) {
+    System.out.println("Erreur : " + e.getMessage());
+}
+```
+
+---
+
+## 3. Erreur en Java
+
+Une erreur en Java est généralement un problème dans le code qui empêche le programme de s'exécuter correctement.
+
+---
+
+## 4. Avantages de la gestion des exceptions
+
+- Permet de gérer les erreurs de manière structurée.
+- Améliore la lisibilité du code.
+- Permet de maintenir le programme en fonctionnement même après une erreur.
+- Facilite le débogage.
+- Sépare la logique de traitement des erreurs de la logique principale.
+
+---
+
+## 5. Façons de gérer les exceptions
+
+- **Try-Catch** : Utilisation d'un bloc `try` pour tester un code, suivi d'un bloc `catch` pour attraper l'exception.
+- **Throws** : Permet de déclarer qu'une méthode peut générer une exception.
+- **Throw** : Utilisé pour lancer une exception.
+
+### Exemple avec Throw et Throws :
+```java
+public class ExceptionExample {
+    public static void main(String[] args) throws Exception {
+        throw new Exception("Exemple d'exception lancée");
+    }
+}
+```
+
+---
+
+## 6. Mots-clés liés à la gestion des exceptions
+
+- **try** : Déclare un bloc de code où une exception peut se produire.
+- **catch** : Attrape l'exception générée dans le bloc `try`.
+- **finally** : Code qui s'exécute après le bloc `try-catch`, qu'il y ait ou non une exception.
+- **throw** : Pour lancer une exception manuellement.
+- **throws** : Pour déclarer qu'une méthode peut lancer une exception.
+
+---
+
+## 7. Bloc try et catch
+
+En Java, le bloc `try` est utilisé pour encapsuler le code susceptible de générer une exception, et le bloc `catch` permet de gérer cette exception.
+
+### Exemple :
+```java
+try {
+    int[] arr = new int[5];
+    arr[10] = 50;  // Cela va provoquer une ArrayIndexOutOfBoundsException
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Exception attrapée : " + e.getMessage());
+}
+```
+
+---
+
+## 8. Bloc finally
+
+Le bloc `finally` est exécuté après le bloc `try` et `catch`, qu'une exception soit levée ou non. Il est souvent utilisé pour libérer des ressources comme des fichiers ou des connexions.
+
+### Exemple :
+```java
+try {
+    System.out.println("Code dans try");
+} catch (Exception e) {
+    System.out.println("Code dans catch");
+} finally {
+    System.out.println("Code dans finally");
+}
+```
+
+---
+
+## 9. Exceptions vérifiées et non vérifiées
+
+- **Exceptions vérifiées (Checked Exceptions)** : Détectées à la compilation. Elles doivent être gérées avec un `try-catch` ou déclarées avec `throws`.
+- **Exceptions non vérifiées (Unchecked Exceptions)** : Hériées de `RuntimeException`. Elles ne sont pas vérifiées à la compilation.
+
+---
+
+## 10. Lancer et relancer des exceptions
+
+- **throw** : Utilisé pour lancer une exception manuellement.
+- **Relancer la même exception** : On peut relancer une exception dans un bloc `catch` avec `throw`.
+
+### Exemple de relance :
+```java
+try {
+    throw new Exception("Exception lancée");
+} catch (Exception e) {
+    System.out.println("Exception attrapée : " + e.getMessage());
+    throw e;  // Relance la même exception
+}
+```
+
+---
+
+## 11. Classe Throwable
+
+La classe **Throwable** est la superclasse de toutes les exceptions et erreurs en Java. Elle permet de gérer les erreurs grâce aux exceptions. Ses principales méthodes sont :
+- **getMessage()** : Retourne le message de l'exception.
+- **printStackTrace()** : Affiche la trace de l'exception.
+- **getCause()** : Retourne la cause de l'exception.
+
+### Exemple :
+```java
+try {
+    throw new Exception("Exemple d'exception");
+} catch (Exception e) {
+    e.printStackTrace();
+    System.out.println("Message de l'exception : " + e.getMessage());
+}
+```
+
