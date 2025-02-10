@@ -190,9 +190,6 @@ class Dog implements Animal {
 
 ---
 
-Voici un exemple de README pour un repo GitHub avec des explications sur les questions Java que tu as mentionnées, accompagné d'exemples de code.
-
----
 
 ## 7) Why is Java platform-independent?
 
