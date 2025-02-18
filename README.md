@@ -14,9 +14,9 @@
 
 ## Table des matières
 
-1. [What are static blocks and static initializers in Java?](#What-are-static-blocks-and-static-initializers-in-Java?)
-2. [How to call one constructor from the other constructor?](#How-to-call-one-constructor-from-the-other-constructor?)
-3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
+1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java)
+2. [How to call one constructor from the other constructor?](#2-How-to-call-one-constructor-from-the-other-constructor?)
+3. [What is method overriding in Java?](#3-What-is-method-overriding-in-Java?)
 4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
 5. [Interface List en Java](#5-interface-list-en-java)
 6. [Méthodes spécifiques à List](#6-methodes-specifiques-a-list)
@@ -34,7 +34,7 @@
 18. [SortedMap](#18-sortedmap)
 19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
 
-## 1. What are static blocks and static initializers in Java?
+## 1. What are static blocks and static initializers in Java
 
 Les blocs statiques (ou initialisateurs statiques) sont utilisés pour initialiser des variables statiques dans une classe. Ils sont exécutés une seule fois, lorsque la classe est chargée en mémoire, avant tout autre code.
 
