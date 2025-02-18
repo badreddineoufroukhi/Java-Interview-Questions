@@ -14,7 +14,7 @@
 
 ## Table des matières
 
-1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java?)
+1. [What are static blocks and static initializers in Java?](#1.-What-are-static-blocks-and-static-initializers-in-Java?)
 2. [Qu'est-ce qu'une collection ?](#2-quest-ce-quune-collection)
 3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
 4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
