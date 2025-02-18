@@ -15,24 +15,30 @@
 ## Table des matières
 
 1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java)
-2. [How to call one constructor from the other constructor?](#2-How-to-call-one-constructor-from-the-other-constructor?)
+2. [How to call one constructor from the other constructor?](#2-How-to-call-one-constructor-from-the-other-constructor)
 3. [What is method overriding in Java?](#3-What-is-method-overriding-in-Java?)
-4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
-5. [Interface List en Java](#5-interface-list-en-java)
-6. [Méthodes spécifiques à List](#6-methodes-specifiques-a-list)
-7. [Implémentations de List](#7-implementations-de-list)
-8. [Iterator et ses méthodes](#8-iterator-et-ses-methodes)
-9. [Ordre d'itération d'un Iterator](#9-ordre-diteration-dun-iterator)
-10. [ListIterator et ses méthodes](#10-listiterator-et-ses-methodes)
-11. [Qu'est-ce qu'un Set ?](#11-quest-ce-quun-set)
-12. [Implémentations de Set](#12-implementations-de-set)
-13. [HashSet et ses caractéristiques](#13-hashset-et-ses-caracteristiques)
-14. [TreeSet et ses caractéristiques](#14-treeset-et-ses-caracteristiques)
-15. [LinkedHashSet et ses caractéristiques](#15-linkedhashset-et-ses-caracteristiques)
-16. [Interface Map en Java](#16-interface-map-en-java)
-17. [LinkedHashMap](#17-linkedhashmap)
-18. [SortedMap](#18-sortedmap)
-19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
+4. [What is the super keyword in Java?](#4-What-is-the-super-keyword-in-Java)
+5. [Difference between method overloading and method overriding in Java?](#5-Difference-between-method-overloading-and-method-overriding-in-Java)
+6. [Difference between abstract class and interface?](#6-Difference-between-abstract-class-and-interface)
+7. [Why is Java platform-independent?](#7-Why-is-Java-platform-independent)
+8. [What is method overloading in Java?](#8-What-is-method-overloading-in-Java)
+9. [What is the difference between C++ and Java?](#9-What-is-the-difference-between-C++-and-Java)
+10. [What is JIT compiler?](#10-What-is-JIT-compiler)
+11. [What is bytecode in Java?](#11-What-is-bytecode-in-Java)
+12. [Difference between this() and super() in Java?](#12-Difference-between-this()-and-super()-in-Java)
+13. [What is a class?](#13-What-is-a-class)
+14. [What is an object?](#14-What-is-an-object)
+15. [What is a method in Java?](#15-What-is-a-method-in-Java)
+16. [What is encapsulation?](#16-What-is-encapsulation)
+17. [Why is the main() method public, static, and void in Java?](#17-Why-is-the-main()-method-public,-static,-and-void-in-Java)
+18. [Explain about the main() method in Java?](#18-Explain-about-the-main()-method-in-Java)
+19. [What is a constructor in Java?s](#19-What-is-a-constructor-in-Java)
+20. [What is the difference between length and length() in Java?](#14-What-is-the-difference-between-length-and-length()-in-Java)
+21. [What is ASCII Code?](#15-What-is-ASCII-Code)
+22. [What is Unicode?](#16-What-is-Unicode)
+23. [Difference between Character Constant and String Constant in Java?](#17-Difference-between-Character-Constant-and-String-Constant-in-Java)
+24. [What are constants and how to create constants in Java?](#18-What-are-constants-and-how-to-create-constants-in-Java)
+25. [Difference between >> and >>> operators in Java?](#19-Difference-between->>-and->>>-operators-in-Java)
 
 ## 1. What are static blocks and static initializers in Java
 
@@ -54,7 +60,7 @@ class Example {
 }
 ```
 
-## 2. How to call one constructor from the other constructor?
+## 2. How to call one constructor from the other constructor
 
 En Java, on peut appeler un constructeur depuis un autre à l'aide de `this()`. Cela permet de réutiliser un autre constructeur de la même classe.
 
@@ -81,7 +87,7 @@ class Example {
 }
 ```
 
-## 3. What is method overriding in Java?
+## 3. What is method overriding in Java
 
 Le "method overriding" en Java consiste à redéfinir une méthode d'une classe par une méthode dans une sous-classe avec la même signature. Cela permet de modifier le comportement d'une méthode héritée.
 
@@ -106,7 +112,7 @@ class Child extends Parent {
 }
 ```
 
-## 4. What is the `super` keyword in Java?
+## 4. What is the `super` keyword in Java
 
 Le mot-clé `super` en Java est utilisé pour faire référence à la classe parente d'une classe enfant. Il permet d'accéder aux membres (méthodes, variables) de la classe parent.
 
@@ -131,7 +137,7 @@ class Child extends Parent {
 }
 ```
 
-## 5. Difference between method overloading and method overriding in Java?
+## 5. Difference between method overloading and method overriding in Java
 
 - **Surcharge de méthode (Method Overloading)** : La méthode porte le même nom mais avec des paramètres différents.
 - **Redéfinition de méthode (Method Overriding)** : La méthode d'une classe parente est redéfinie dans une sous-classe avec le même nom et la même signature.
@@ -176,7 +182,7 @@ class Child extends Parent {
 }
 ```
 
-## 6. Difference between abstract class and interface?
+## 6. Difference between abstract class and interface
 
 - **Classe abstraite** : Peut contenir des méthodes avec ou sans implémentation. Elle permet d'hériter des comportements partagés.
 - **Interface** : Contient uniquement des méthodes sans implémentation. Une classe peut implémenter plusieurs interfaces.
@@ -225,7 +231,7 @@ class Dog implements Animal {
 
 
 
-## 7. Why is Java platform-independent?
+## 7. Why is Java platform-independent
 
 Java est indépendant de la plateforme grâce à la machine virtuelle Java (JVM). Le code source Java est compilé en bytecode, qui est exécuté par la JVM, peu importe le système d'exploitation.
 
@@ -237,7 +243,7 @@ javac HelloWorld.java  # Compilation en bytecode
 java HelloWorld        # Exécution via la JVM
 ```
 
-## 8. What is method overloading in Java?
+## 8. What is method overloading in Java
 
 Le surchargement de méthode en Java consiste à définir plusieurs méthodes avec le même nom, mais des paramètres différents (type, nombre ou ordre).
 
@@ -260,18 +266,18 @@ class Example {
 }
 ```
 
-## 9. What is the difference between C++ and Java?
+## 9. What is the difference between C++ and Java
 
 La principale différence entre C++ et Java est que C++ est un langage compilé, tandis que Java est un langage interprété (avec une étape de compilation en bytecode).
 
 - C++ : Compilation directe en code machine.
 - Java : Compilation en bytecode, puis interprétation par la JVM.
 
-## 10. What is JIT compiler?
+## 10. What is JIT compiler
 
 Le compilateur JIT (Just-In-Time) compile le bytecode Java en code machine au moment de l'exécution, ce qui améliore les performances du programme.
 
-## 11. What is bytecode in Java?
+## 11. What is bytecode in Java
 
 Le bytecode en Java est un code intermédiaire généré après la compilation du code source Java. Il est indépendant de la plateforme et peut être exécuté sur n'importe quelle machine qui possède la Java Virtual Machine (JVM).
 
@@ -281,7 +287,7 @@ javac HelloWorld.java  # Compilation en bytecode
 java HelloWorld        # Exécution du bytecode via la JVM
 ```
 
-## 12. Difference between `this()` and `super()` in Java?
+## 12. Difference between `this()` and `super()` in Java
 
 - **`this()`** : Appelle un autre constructeur de la même classe.
 - **`super()`** : Appelle un constructeur de la classe parente.
@@ -306,7 +312,7 @@ class Child extends Parent {
 }
 ```
 
-## 13. What is a class?
+## 13. What is a class
 
 Une classe est un modèle qui définit des objets. Elle contient des attributs (variables) et des méthodes (fonctions).
 
@@ -322,7 +328,7 @@ class Car {
 }
 ```
 
-## 14. What is an object?
+## 14. What is an object
 
 Un objet en Java est une instance d'une classe, qui représente un concept ou une entité du monde réel.
 
@@ -343,7 +349,7 @@ class Car {
 }
 ```
 
-## 15. What is a method in Java?
+## 15. What is a method in Java
 
 Une méthode en Java est un bloc de code qui effectue une tâche spécifique. Elle est définie dans une classe et peut être appelée pour exécuter cette tâche.
 
@@ -362,7 +368,7 @@ class Calculator {
 }
 ```
 
-## 16. What is encapsulation?
+## 16. What is encapsulation
 
 L'encapsulation est un concept de la programmation orientée objet qui consiste à cacher les détails internes d'une classe et à ne rendre accessibles que les méthodes nécessaires.
 
@@ -381,13 +387,13 @@ class Person {
 }
 ```
 
-## 17. Why is the `main()` method public, static, and void in Java?
+## 17. Why is the `main()` method public, static, and void in Java
 
 - **`public`** : Pour qu'elle soit accessible par la JVM.
 - **`static`** : Pour qu'elle soit exécutée sans créer d'objet de la classe.
 - **`void`** : Car elle ne renvoie aucune valeur.
 
-## 18. Explain about the `main()` method in Java?
+## 18. Explain about the `main()` method in Java
 
 La méthode `main()` est le point d'entrée d'un programme Java. C'est là que l'exécution commence.
 
@@ -400,7 +406,7 @@ public class HelloWorld {
 }
 ```
 
-## 19. What is a constructor in Java?
+## 19. What is a constructor in Java
 
 Un constructeur en Java est une méthode spéciale utilisée pour initialiser les objets. Il a le même nom que la classe et n'a pas de type de retour.
 
@@ -420,7 +426,7 @@ class Car {
 }
 ```
 
-## 20. What is the difference between `length` and `length()` in Java?
+## 20. What is the difference between `length` and `length()` in Java
 
 - **`length`** : Attribut pour les tableaux.
 - **`length()`** : Méthode pour les chaînes de caractères.
@@ -436,20 +442,20 @@ String str = "Hello";
 System.out.println("String length: " + str.length());
 ```
 
-## 21. What is ASCII Code?
+## 21. What is ASCII Code
 
 Le code ASCII (American Standard Code for Information Interchange) est un système de codage qui représente des caractères sous forme de nombres.
 
-## 22. What is Unicode?
+## 22. What is Unicode
 
 Unicode est un système de codage qui permet de représenter tous les caractères de toutes les langues du monde.
 
-## 23. Difference between Character Constant and String Constant in Java?
+## 23. Difference between Character Constant and String Constant in Java
 
 - **Caractère constant** : Un seul caractère entouré de guillemets simples, comme `'a'`.
 - **Chaîne constante** : Une séquence de caractères entourée de guillemets doubles, comme `"Hello"`.
 
-## 24. What are constants and how to create constants in Java?
+## 24. What are constants and how to create constants in Java
 
 Les constantes en Java sont des valeurs fixes qui ne changent pas pendant l'exécution du programme. Pour créer une constante, on utilise le mot-clé `final`, suivi du type de la variable.
 
@@ -458,7 +464,7 @@ Les constantes en Java sont des valeurs fixes qui ne changent pas pendant l'exé
 final int CONSTANT = 100;
 ```
 
-## 25. Difference between `>>` and `>>>` operators in Java?
+## 25. Difference between `>>` and `>>>` operators in Java
 
 - **`>>`** : Déplace les bits vers la droite et garde le signe (les nombres négatifs gardent leur signe).
 - **`>>>`** : Déplace les bits vers la droite et remplace les bits vides par des zéros (les nombres négatifs ne gardent pas leur signe).
