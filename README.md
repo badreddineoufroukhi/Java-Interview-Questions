@@ -7,8 +7,8 @@
 3. [Java Exception Handling Interview Questions](#Java-Exception-Handling-Interview-Questions)
 4. [OOP Concepts Interview Questions](#OOP-Concepts-Interview-Questions)
 5. [Java Core Serialization Interview Questions](#Java-Core-Serialization-Interview-Questions)
-6. [Questions d'entretien Java sur les Threads](#Questions-d'entretien-Java-sur-les-Threads)
-7. [Questions d'entretien Java sur le Framework de Collections](#Questions-d'entretien-Java-sur-le-Framework-de-Collections)
+6. [Questions d'entretien Java sur les Threads](#Questions-entretien-Java-sur-les-Threads)
+7. [Questions d'entretien Java sur le Framework de Collections](#Questions-entretien-Java-sur-le-Framework-de-Collections)
 
 # Notions Fondamentales
 ## 1) What are static blocks and static initializers in Java?
@@ -1308,7 +1308,7 @@ public class Person {
 
 ---
 
-# Questions d'entretien Java sur les Threads
+# Questions entretien Java sur les Threads
 
 Ce dépôt contient des questions fréquemment posées lors des entretiens sur les threads en Java, accompagnées d'explications détaillées et d'exemples de code.
 
@@ -1554,7 +1554,7 @@ Les exceptions courantes liées aux threads incluent :
 ---
 
 
-# Questions d'entretien Java sur le Framework de Collections
+# Questions entretien Java sur le Framework de Collections
 
 Ce dépôt contient des questions courantes sur le **Collection Framework** en Java, avec des explications détaillées et des exemples de code.
 
