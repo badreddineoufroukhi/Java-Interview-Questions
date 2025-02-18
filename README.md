@@ -4,16 +4,11 @@
 
 1. [Notions Fondamentales](#Notions-Fondamentales)
 2. [Java Core Interview Questions - Coding Standards](#Java-Core-Interview-Questions---Coding-Standards)
-3. [IS-A and HAS-A Relationship](#3-is-a-and-has-a-relationship)
-4. [instanceof Operator](#4-instanceof-operator)
-5. [null in Java](#5-null-in-java)
-6. [Multiple Classes in One File](#6-multiple-classes-in-one-file)
-7. [Access Modifiers for Top-Level Class](#7-access-modifiers-for-top-level-class)
-8. [Package in Java](#8-package-in-java)
-9. [Identifiers in Java](#9-identifiers-in-java)
-10. [Access Modifiers](#10-access-modifiers)
-11. [final Keyword](#11-final-keyword)
-12. [Abstract Classes](#12-abstract-classes)
+3. [Java Exception Handling Interview Questions](#Java-Exception-Handling-Interview-Questions)
+4. [OOP Concepts Interview Questions](#OOP-Concepts-Interview-Questions)
+5. [Java Core Serialization Interview Questions](#Java-Core-Serialization-Interview-Questions)
+6. [Questions d'entretien Java sur les Threads](#Questions-d'entretien-Java-sur-les-Threads)
+7. [Questions d'entretien Java sur le Framework de Collections](#Questions-d'entretien-Java-sur-le-Framework-de-Collections)
 
 # Notions Fondamentales
 ## 1) What are static blocks and static initializers in Java?
