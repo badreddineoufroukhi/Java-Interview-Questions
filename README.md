@@ -14,7 +14,7 @@
 
 ## Table des matières
 
-1. [What are static blocks and static initializers in Java?](#1.-What-are-static-blocks-and-static-initializers-in-Java?)
+1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java?)
 2. [Qu'est-ce qu'une collection ?](#2-quest-ce-quune-collection)
 3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
 4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
@@ -33,7 +33,6 @@
 17. [LinkedHashMap](#17-linkedhashmap)
 18. [SortedMap](#18-sortedmap)
 19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
-20. [Différence entre HashMap et Hashtable](#20-difference-entre-hashmap-et-hashtable)
 
 ## 1. What are static blocks and static initializers in Java?
 
