@@ -14,8 +14,8 @@
 
 ## Table des matières
 
-1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java?)
-2. [How to call one constructor from the other constructor?](#2-How-to-call-one-constructor-from-the-other-constructor?)
+1. [What are static blocks and static initializers in Java?](#What-are-static-blocks-and-static-initializers-in-Java?)
+2. [How to call one constructor from the other constructor?](#How-to-call-one-constructor-from-the-other-constructor?)
 3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
 4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
 5. [Interface List en Java](#5-interface-list-en-java)
