@@ -11,6 +11,30 @@
 7. [Questions d'entretien Java sur le Framework de Collections](#Questions-entretien-Java-sur-le-Framework-de-Collections)
 
 # Notions Fondamentales
+
+## Table des matières
+
+1. [What are static blocks and static initializers in Java?](#1-What-are-static-blocks-and-static-initializers-in-Java?)
+2. [Qu'est-ce qu'une collection ?](#2-quest-ce-quune-collection)
+3. [Différence entre `Collection` et `Collections`](#3-difference-entre-collection-et-collections)
+4. [Interfaces qui étendent `Collection`](#4-interfaces-qui-etendent-collection)
+5. [Interface List en Java](#5-interface-list-en-java)
+6. [Méthodes spécifiques à List](#6-methodes-specifiques-a-list)
+7. [Implémentations de List](#7-implementations-de-list)
+8. [Iterator et ses méthodes](#8-iterator-et-ses-methodes)
+9. [Ordre d'itération d'un Iterator](#9-ordre-diteration-dun-iterator)
+10. [ListIterator et ses méthodes](#10-listiterator-et-ses-methodes)
+11. [Qu'est-ce qu'un Set ?](#11-quest-ce-quun-set)
+12. [Implémentations de Set](#12-implementations-de-set)
+13. [HashSet et ses caractéristiques](#13-hashset-et-ses-caracteristiques)
+14. [TreeSet et ses caractéristiques](#14-treeset-et-ses-caracteristiques)
+15. [LinkedHashSet et ses caractéristiques](#15-linkedhashset-et-ses-caracteristiques)
+16. [Interface Map en Java](#16-interface-map-en-java)
+17. [LinkedHashMap](#17-linkedhashmap)
+18. [SortedMap](#18-sortedmap)
+19. [Hashtable et ses caractéristiques](#19-hashtable-et-ses-caracteristiques)
+20. [Différence entre HashMap et Hashtable](#20-difference-entre-hashmap-et-hashtable)
+
 ## 1) What are static blocks and static initializers in Java?
 
 Les blocs statiques (ou initialisateurs statiques) sont utilisés pour initialiser des variables statiques dans une classe. Ils sont exécutés une seule fois, lorsque la classe est chargée en mémoire, avant tout autre code.
