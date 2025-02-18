@@ -3,7 +3,7 @@
 ## Table des matières
 
 1. [Notions Fondamentales](#Notions-Fondamentales)
-2. [Java Coding Standards for Interfaces, Methods, Variables, Constants](#2-java-coding-standards-for-interfaces-methods-variables-constants)
+2. [Java Core Interview Questions - Coding Standards](#Java-Core-Interview-Questions---Coding-Standards)
 3. [IS-A and HAS-A Relationship](#3-is-a-and-has-a-relationship)
 4. [instanceof Operator](#4-instanceof-operator)
 5. [null in Java](#5-null-in-java)
