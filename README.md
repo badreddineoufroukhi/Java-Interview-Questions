@@ -1,5 +1,21 @@
 # Java Interview Questions
 
+## Table des matières
+
+1. [Notions Fondamentales](#Notions-Fondamentales)
+2. [Java Coding Standards for Interfaces, Methods, Variables, Constants](#2-java-coding-standards-for-interfaces-methods-variables-constants)
+3. [IS-A and HAS-A Relationship](#3-is-a-and-has-a-relationship)
+4. [instanceof Operator](#4-instanceof-operator)
+5. [null in Java](#5-null-in-java)
+6. [Multiple Classes in One File](#6-multiple-classes-in-one-file)
+7. [Access Modifiers for Top-Level Class](#7-access-modifiers-for-top-level-class)
+8. [Package in Java](#8-package-in-java)
+9. [Identifiers in Java](#9-identifiers-in-java)
+10. [Access Modifiers](#10-access-modifiers)
+11. [final Keyword](#11-final-keyword)
+12. [Abstract Classes](#12-abstract-classes)
+
+# Notions Fondamentales
 ## 1) What are static blocks and static initializers in Java?
 
 Les blocs statiques (ou initialisateurs statiques) sont utilisés pour initialiser des variables statiques dans une classe. Ils sont exécutés une seule fois, lorsque la classe est chargée en mémoire, avant tout autre code.
